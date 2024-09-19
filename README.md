@@ -12,10 +12,21 @@ This project implements an AI assistant with web search capabilities using Strea
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/ai-assistant-web-search.git
+   git clone https://github.com/yourusername/agents_langchain.git
    ```
 
 2. Install the required dependencies:
+   ```
+   pip install streamlit langchain langchain-openai langchain-community openai duckduckgo-search
+   ```
+
+3. Create a virtual environment (optional but recommended):
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
+
+4. Install the required dependencies:
    ```
    pip install -r requirements.txt
    ```
