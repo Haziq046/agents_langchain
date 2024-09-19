@@ -1,11 +1,21 @@
 import os
+from dotenv import load_dotenv
 import streamlit as st
 from langchain.agents import initialize_agent, AgentType
 from langchain.chat_models import ChatOpenAI
 from langchain.tools import DuckDuckGoSearchRun
 
+# Load environment variables from .env file
+load_dotenv()
+
 # Set up OpenAI API key
-os.environ["OPENAI_API_KEY"] = st.secrets["OpenAI_key"]  # Ensure this key exists in secrets.toml
+openai_api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get("OpenAI_key")
+if not openai_api_key:
+    st.error("OpenAI API key not found. Please set it in your .env file or Streamlit secrets.")
+    st.stop()
+
+# Set the API key in the environment
+os.environ["OPENAI_API_KEY"] = openai_api_key
 
 # Initialize the language model with the correct model name
 llm = ChatOpenAI(temperature=0, model="gpt-4")
