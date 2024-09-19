@@ -5,10 +5,10 @@ from langchain.chat_models import ChatOpenAI
 from langchain.tools import DuckDuckGoSearchRun
 
 # Set up OpenAI API key
-os.environ["OPENAI_API_KEY"] = st.secrets["OpenAI_key"]
+os.environ["OPENAI_API_KEY"] = st.secrets["OpenAI_key"]  # Ensure this key exists in secrets.toml
 
-# Initialize the language model
-llm = ChatOpenAI(temperature=0, model="gpt-4o")
+# Initialize the language model with the correct model name
+llm = ChatOpenAI(temperature=0, model="gpt-4")
 
 # Initialize the search tool
 search = DuckDuckGoSearchRun()
