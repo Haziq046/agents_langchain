@@ -9,7 +9,7 @@ from langchain.tools import DuckDuckGoSearchRun
 load_dotenv()
 
 # Set up OpenAI API key
-openai_api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get("OpenAI_key")
+openai_api_key = os.getenv("OPENAI_API_KEY") or st.secrets.get["openai"]["api_key"]
 if not openai_api_key:
     st.error("OpenAI API key not found. Please set it in your .env file or Streamlit secrets.")
     st.stop()
